@@ -15,7 +15,6 @@ class ScoreBoardModel:
         })
 
     def find(self, minute):
-        print("minute", minute)
         return self.col.find_one({
             "$and": [
                 {
