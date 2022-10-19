@@ -20,3 +20,8 @@ class ScheduleModel:
         return self.col.find_one({
             "title": title
         })
+
+    def find_by_id(self, _id):
+        return self.col.find_one({
+            "_id": _id
+        })

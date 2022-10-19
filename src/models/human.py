@@ -17,3 +17,8 @@ class HumanModel:
         return self.col.find_one({
             "name": name
         })
+
+    def find_by_id(self, _id):
+        return self.col.find_one({
+            "_id": _id
+        })
