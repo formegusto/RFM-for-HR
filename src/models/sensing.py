@@ -1,9 +1,7 @@
 # Model Human
 from pymongo import MongoClient as mc
 from datetime import datetime as dt
-from src.models.human import HumanModel
-from src.models.schedule import ScheduleModel
-from src.models.score_board import ScoreBoardModel
+from src.models import HumanModel, ScheduleModel, ScoreBoardModel
 
 
 class SensingModel:
@@ -31,7 +29,7 @@ class SensingModel:
             "score": score
         })
 
-    def get_one_month(self, month):
+    def get_one_month(self, month, emp_name=None):
         human_model = HumanModel()
         schedule_model = ScheduleModel()
 
@@ -71,4 +69,4 @@ class SensingModel:
                 "score": c['score']
             })
 
-        return datas
+        return datas if emp_name is None else list(filter(lambda x: x['employee_name'] == emp_name, datas))

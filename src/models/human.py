@@ -13,6 +13,9 @@ class HumanModel:
             "name": name
         })
 
+    def find_all(self):
+        return self.col.find({})
+
     def find(self, name):
         return self.col.find_one({
             "name": name
